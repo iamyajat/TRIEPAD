@@ -64,7 +64,7 @@ public class DictionaryTrie {
     }
 
     public void loadTrie() throws IOException {
-        File file = new File("./wordsets/dict_words.txt");
+        File file = new File("src/datasets/dict_words.txt");
         Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
         while (sc.hasNextLine()) {
             insert(sc.nextLine(), sc.nextLine(), sc.nextLine(), sc.nextLine());

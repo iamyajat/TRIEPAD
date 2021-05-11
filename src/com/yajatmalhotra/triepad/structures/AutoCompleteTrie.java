@@ -89,7 +89,7 @@ public class AutoCompleteTrie {
     }
 
     public void loadTrie() throws IOException{
-        File file = new File("./wordsets/auto_words.txt");
+        File file = new File("src/datasets/auto_words.txt");
         Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
         while (sc.hasNextLine()) {
             insert(sc.nextLine());
