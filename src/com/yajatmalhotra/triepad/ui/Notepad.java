@@ -105,7 +105,7 @@ public class Notepad {
     }
 
     void showMeaning(String word, String meaning) throws MalformedURLException {
-        ImageIcon icon = new ImageIcon("./assets/dictionary.png");
+        ImageIcon icon = new ImageIcon("src/assets/dictionary.png");
         if (meaning.compareTo("") != 0)
             JOptionPane.showMessageDialog(frame, meaning, "Meaning: " + word, JOptionPane.INFORMATION_MESSAGE, icon);
         else
