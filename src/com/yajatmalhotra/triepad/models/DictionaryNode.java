@@ -1,5 +1,6 @@
 package com.yajatmalhotra.triepad.models;
 
+// Made By: Yajat Malhotra
 public class DictionaryNode {
     public char ch;
     public String meaning;

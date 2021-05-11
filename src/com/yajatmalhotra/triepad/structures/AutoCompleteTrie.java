@@ -6,15 +6,18 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+// Made By: Yajat Malhotra
 public class AutoCompleteTrie {
     private final AutoCompleteNode root;
     private final int SIZE;
 
+    // Constructor to initialise the values
     public AutoCompleteTrie() {
         this.root = new AutoCompleteNode(' ');
         this.SIZE = 26;
     }
 
+    // Function which adds words to Trie
     public void insert(String word) {
         try {
             AutoCompleteNode current = root;
@@ -30,15 +33,18 @@ public class AutoCompleteTrie {
         }
     }
 
+    // Function to search for words
     public boolean search(String word) {
         AutoCompleteNode searchNode = getNode(word);
         return searchNode != null && searchNode.isWord;
     }
 
+    // Function which checks if a word which starts with some prefix is available in the Trie data structure or not
     public boolean startsWith(String prefix) {
         return getNode(prefix) != null;
     }
 
+    // Function which finds the last node of words (i.e, where the word ends)
     public boolean lastNode(AutoCompleteNode n) {
         for (int i = 0; i < SIZE; i++)
             if (n.alphabets[i] != null)
@@ -46,6 +52,7 @@ public class AutoCompleteTrie {
         return true;
     }
 
+    // Function which gives 'amt' number of suggestions to complete a word
     public String[] autoComplete(String prefix, int amt) {
         AutoCompleteNode n = getNode(prefix);
         String[] words = new String[amt];
@@ -55,6 +62,7 @@ public class AutoCompleteTrie {
         return words;
     }
 
+    // Function which processes finds the words in the Trie data structure
     public String[] suggestions(AutoCompleteNode n, String prefix, int amt, String[] arr) {
         if(amt > 0) {
             if (n.isWord) {
@@ -77,6 +85,7 @@ public class AutoCompleteTrie {
         return arr;
     }
 
+    // Function to get a node
     private AutoCompleteNode getNode(String word) {
         AutoCompleteNode current = root;
         for (int i = 0; i < word.length(); i++) {
@@ -88,6 +97,7 @@ public class AutoCompleteTrie {
         return current;
     }
 
+    // Loads the dataset in the Trie data structure
     public void loadTrie() throws IOException{
         File file = new File("src/datasets/auto_words.txt");
         Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
@@ -96,6 +106,7 @@ public class AutoCompleteTrie {
         }
     }
 
+    // Main function to test the code
     public static void main(String[] args) throws IOException {
         AutoCompleteTrie act = new AutoCompleteTrie();
         act.loadTrie();

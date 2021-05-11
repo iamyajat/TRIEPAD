@@ -1,5 +1,6 @@
 package com.yajatmalhotra.triepad.models;
 
+// Made By: Yajat Malhotra
 public class AutoCompleteNode {
     public char ch;
     public boolean isWord;

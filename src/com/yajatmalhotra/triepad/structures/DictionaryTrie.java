@@ -6,15 +6,18 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+// Made By: Yajat Malhotra
 public class DictionaryTrie {
     private final DictionaryNode root;
     private final int SIZE;
 
+    // Constructor to initialise the values
     public DictionaryTrie() {
         this.root = new DictionaryNode(' ', 26);
         this.SIZE = 26;
     }
 
+    // Function which adds words, meanings and examples to Trie
     public void insert(String word, String meaning, String ex1, String ex2) {
         try {
             DictionaryNode current = root;
@@ -32,6 +35,7 @@ public class DictionaryTrie {
         }
     }
 
+    // Function to search for words
     public DictionaryNode search(String word) {
         DictionaryNode searchDictionaryNode = getNode(word);
         if (searchDictionaryNode != null && searchDictionaryNode.meaning != null) {
@@ -40,6 +44,7 @@ public class DictionaryTrie {
         return null;
     }
 
+    // Function to find the meaning and examples of a given word
     public String define(String word) {
         DictionaryNode dn = search(word);
         if (dn != null) {
@@ -52,6 +57,7 @@ public class DictionaryTrie {
         return "";
     }
 
+    // Function to get a node
     private DictionaryNode getNode(String word) {
         DictionaryNode current = root;
         for (int i = 0; i < word.length(); i++) {
@@ -63,6 +69,7 @@ public class DictionaryTrie {
         return current;
     }
 
+    // Loads the dataset in the Trie data structure
     public void loadTrie() throws IOException {
         File file = new File("src/datasets/dict_words.txt");
         Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
@@ -71,7 +78,7 @@ public class DictionaryTrie {
         }
     }
 
-
+    // Main function to test the code
     public static void main(String[] args) throws IOException {
         DictionaryTrie dt = new DictionaryTrie();
         dt.loadTrie();

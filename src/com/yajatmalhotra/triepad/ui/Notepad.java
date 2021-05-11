@@ -12,6 +12,7 @@ import java.awt.*;
 import java.io.*;
 import java.net.MalformedURLException;
 
+// Made By: Yajat Malhotra
 public class Notepad {
     private JButton button1;
     private JButton button2;

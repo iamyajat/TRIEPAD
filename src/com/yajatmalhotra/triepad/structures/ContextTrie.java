@@ -7,15 +7,18 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+// Made By: Yajat Malhotra
 public class ContextTrie {
     private final ContextNode root;
     private final int SIZE;
 
+    // Constructor to initialise the values
     public ContextTrie() {
         this.root = new ContextNode(' ');
         this.SIZE = 27;
     }
 
+    // Function which adds a phrase to Trie
     public void insert(String word) {
         try {
             ContextNode current = root;
@@ -37,15 +40,18 @@ public class ContextTrie {
         }
     }
 
+    // Function to search for words
     public boolean search(String word) {
         ContextNode searchNode = getNode(word);
         return searchNode != null && searchNode.isPhrase;
     }
 
+    // Function which checks if a word which starts with some prefix is available in the Trie data structure or not
     public boolean startsWith(String prefix) {
         return getNode(prefix) != null;
     }
 
+    // Function which finds the last node of words (i.e, where the word ends)
     public boolean lastNode(ContextNode n) {
         for (int i = 0; i < SIZE; i++)
             if (n.alphabets[i] != null)
@@ -53,6 +59,7 @@ public class ContextTrie {
         return true;
     }
 
+    // Function which gives 'amt' number of suggestions to complete a word
     public String[] autoComplete(String prefix, int amt) {
         ContextNode n = getNode(prefix);
         String[] words = new String[amt];
@@ -62,6 +69,7 @@ public class ContextTrie {
         return words;
     }
 
+    // Function which processes finds the words in the Trie data structure
     public String[] suggestions(ContextNode n, String prefix, int amt, String[] arr) {
         if (amt > 0) {
             if (n.isPhrase) {
@@ -88,6 +96,7 @@ public class ContextTrie {
         return arr;
     }
 
+    // Function to get a node
     private ContextNode getNode(String word) {
         ContextNode current = root;
         for (int i = 0; i < word.length(); i++) {
@@ -105,6 +114,7 @@ public class ContextTrie {
         return current;
     }
 
+    // Loads the dataset in the Trie data structure
     public void loadTrie() throws IOException {
         File file = new File("src/datasets/context_words.txt");
         Scanner sc = new Scanner(file, StandardCharsets.UTF_8);
@@ -113,6 +123,7 @@ public class ContextTrie {
         }
     }
 
+    // Main function to test the code
     public static void main(String[] args) throws IOException {
         ContextTrie act = new ContextTrie();
         act.loadTrie();
