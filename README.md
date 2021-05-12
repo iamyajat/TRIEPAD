@@ -16,10 +16,6 @@
     <br />
     <br />
     <a href="https://github.com/iamyajat/TRIEPAD">Download (Coming Soon)</a>
-    ·
-    <a href="https://github.com/iamyajat/TRIEPAD/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/iamyajat/TRIEPAD/issues">Request Feature</a>
   </p>
 </p>
 
@@ -62,7 +58,7 @@ A notepad with features like context-aware auto-complete and dictionary made usi
 ### 3. **DictionaryTrie**
 - Node Structure:
 - ![DictionaryTrieNodeStructure](https://user-images.githubusercontent.com/68477362/117855265-eec36f00-b2a7-11eb-9801-4817c9d22bce.png)
-- Functions used: `insert()`, `search()` and `startsWith()`
+- Functions used: `insert()` and `search()`
 - Node file: [DictionaryNode.java](https://github.com/iamyajat/TRIEPAD/blob/main/src/com/yajatmalhotra/triepad/models/DictionaryNode.java)
 - Structure Used: [DictionaryTrie.java](https://github.com/iamyajat/TRIEPAD/blob/main/src/com/yajatmalhotra/triepad/structures/DictionaryTrie.java)
 
