@@ -46,6 +46,7 @@ public class Notepad {
         button3.addActionListener(e -> {
             updateTextArea(button3.getText());
         });
+
         textArea1.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -62,6 +63,7 @@ public class Notepad {
                 updateButtons();
             }
         });
+
         openFile.addActionListener(e -> {
             JFileChooser open = new JFileChooser();
             int option = open.showOpenDialog(frame);
@@ -77,6 +79,7 @@ public class Notepad {
                 }
             }
         });
+
         saveFile.addActionListener(e -> {
             JFileChooser save = new JFileChooser();
             int option = save.showSaveDialog(frame);
@@ -90,6 +93,7 @@ public class Notepad {
                 }
             }
         });
+
         close.addActionListener(e -> {
             System.exit(0);
         });
@@ -179,12 +183,15 @@ public class Notepad {
             e.printStackTrace();
         }
 
+        ImageIcon img = new ImageIcon("src/assets/notepad.png");
+
         file.add(openFile);
         file.add(saveFile);
         file.add(close);
         menuBar.add(file);
         tools.add(dictTool);
         menuBar.add(tools);
+        frame.setIconImage(img.getImage());
         frame.setJMenuBar(menuBar);
         frame.setContentPane(new Notepad().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
